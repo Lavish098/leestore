@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: whitesmoke;
+}
+header{
+    background-color: whitesmoke;
+    padding: 0 25px;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
+    z-index: 99;
+}
+.nav-links{
+    position: absolute;
+    left: 30%;
+    font-weight: 600;
+    padding: 0 8px;
+    transition: .3s color ease;
+}
+.links{
+    margin-right: 20px;
+}
+.links.nuxt-link-active{
+    color: grey;
+}
+.nav-links:hover{
+    color: #1eb8b8;
+}
+.nav{
+    display: flex;
+    font-size: 24px;
+    padding: 20px 0;
+    align-items: flex-end;
+    width:100%;
+}
+.name{
+    font-weight: 500;
+    font-size: 30px;
+}
+.button{
+position: absolute;
+right: 0;
+}
+.cart-table{
+    font-weight: 500;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.cart-table .table{
+    display: flex;
+    margin-bottom: 15px;
+}
+.cart-table p{
+    font-size: 20px;
+    padding-right: 40px;
+}
