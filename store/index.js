@@ -51,15 +51,15 @@ export const mutations = {
       updateLocalStorage(state.cart)
    },
     removeItem(state, product){
-      let item = state.cart.find(i => i.id === product.id)
-      console.log(item)
-
-      if(item){
-          item.id !== product.id
+      state.cart = state.cart.filter(i => i.id !== product.id)
+  
+      // if(item){
+      //   this.$delete(this.cart, item)
+      //     // state.cart.splice(item, item)
         
-      } else {
-       state.cart = state.cart.filter(i => i.id !== products.id)
-      }
+      // } else {
+      //  state.cart = state.cart.filter(i => i.id !== products.id)
+      // }
 
       updateLocalStorage(state.cart)
    },
