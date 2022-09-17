@@ -19,9 +19,7 @@ export default {
         }
     },
     methods:{
-        addToCart(){
-            
-        }
+    
     },
     computed:{
     carts(){

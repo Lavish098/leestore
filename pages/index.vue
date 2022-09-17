@@ -5,7 +5,7 @@
 :active="active.product_drawer"
 v-on:close-product-drawer="closeProductDrawer()"/>
 
-<productCard :product="product" v-for="product in products" :key="product.id"
+<productCard :product="product" v-for="product in productFeeds" :key="product.id"
 v-on:view-product="viewProduct($event)"
 />
 
@@ -14,16 +14,21 @@ v-on:view-product="viewProduct($event)"
 </template>
 
 <script>
-import products from '../data/products.js'
+
 export default {
   name: 'IndexPage',
   data(){
     return{
-      products: products,
+      // products: products,
       product: null,
       active:{
         product_drawer: false
       }
+    }
+  },
+  computed:{
+    productFeeds(){
+      return this.$store.getters.productFeeds
     }
   },
   methods:{

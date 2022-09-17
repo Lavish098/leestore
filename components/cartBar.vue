@@ -10,9 +10,9 @@
             <p>quantity</p>
             <p>Price</p>
     </div>
-            
            <cartItem v-for="product in products" :key="product.id" :product="product"/>
     <div class="cart-checkout"><h2>Total: ${{ cart_total.toFixed(2)}}</h2>
+    <!-- <button @click="removeAll" class="clear">Clear All</button> -->
     <button>Checkout</button>
     </div>
     </div>
@@ -24,7 +24,6 @@ export default {
     props:['toggle'],
     data(){
         return{
-           items : this.products
         }
     },
     computed:{
@@ -34,14 +33,12 @@ export default {
        products(){
     return this.$store.getters.cartItems
   }
-    //     item_cost() {
-    //     // console.log(this.products.price.USD)
-    //     if(this.items.data)
-    //     console.log(this.items.name)
-    //     // return this.products.price.USD * this.products.quantity
-    //    }
-    
 },
+methods:{
+//     removeAll(){
+//             this.$store.commit('removeAll', this.products)
+//         }
+}
 
 }
 </script>
@@ -50,11 +47,12 @@ export default {
 .cart-bar{
     background: whitesmoke;
      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86);
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 40%;
     height: 100vh;
+    transition: display .5s;
     z-index: 99999999999;
 }
 .cart-header{
@@ -82,5 +80,9 @@ export default {
 .cart-checkout button{
     position: absolute;
     right: 30px;
+}
+.cart-checkout .clear{
+    position: absolute;
+    right: 150px;
 }
 </style>

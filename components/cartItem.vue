@@ -19,7 +19,6 @@ computed:{
 },
 methods:{
     removeItem(){
-        console.log(this.products)
             this.$store.commit('removeItem', this.product)
         }
 }

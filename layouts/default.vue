@@ -9,7 +9,7 @@
     <nuxt-link to="pastorder" class="links">Past order</nuxt-link>
     
     </div>
-    <button class="button" @click="toggleCartBar">Cart(0)</button>
+    <button class="button" @click="toggleCartBar">Cart({{totalQuantity}})</button>
     </div>
     </header>
     <cartBar v-if="cartBar" 
@@ -26,9 +26,9 @@ data(){
   }
 },
 computed:{
-  // products(){
-  //   return this.$store.getters.cartItems
-  // }
+  totalQuantity(){
+    return this.$store.getters.totalQuantity
+  }
 },
 methods:{
 toggleCartBar(){

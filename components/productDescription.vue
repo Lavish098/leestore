@@ -1,6 +1,6 @@
 <template>
-<div class="drawer-background" :class="{show: active}" >
-  <!-- <div :class="{show: active}" @click="$emit('close-product-drawer')"/> -->
+<div  :class="{show: active}" >
+  <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')"/>
   <div :class="{show: active}" class="drawer">
     <div class="closeDrawer" @click="$emit('close-product-drawer')">
         X  
@@ -36,7 +36,6 @@ export default {
     },
     computed:{
         product_total(){
-            console.log(this.$store)
             return this.$store.getters.productQuantity(this.product)
         }
     }
