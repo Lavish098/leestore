@@ -24,8 +24,8 @@ header{
 .links.nuxt-link-active{
     color: grey;
 }
-.nav-links:hover{
-    color: #1eb8b8;
+.links:hover{
+    color: grey;
 }
 .nav{
     display: flex;
@@ -40,7 +40,17 @@ header{
 }
 .button{
 position: absolute;
-right: 0;
+top: 27px;
+right: 12px;
+}
+.button i {
+    font-size: 40px;
+}
+.button h2 {
+    color: white;
+    right: 8px;
+    top: -4px;
+    position: absolute;
 }
 .cart-table{
     font-weight: 500;

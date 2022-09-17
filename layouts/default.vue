@@ -9,7 +9,10 @@
     <nuxt-link to="pastorder" class="links">Past order</nuxt-link>
     
     </div>
-    <button class="button" @click="toggleCartBar">Cart({{totalQuantity}})</button>
+    <button class="button" @click="toggleCartBar">
+      <i class="fas fa-shopping-cart"></i>
+      <h2>{{totalQuantity}}</h2>
+      </button>
     </div>
     </header>
     <cartBar v-if="cartBar" 
@@ -19,6 +22,7 @@
 </template>
 
 <script>
+import '@/fontawesome-free-5.15.1-web/css/all.css'
 export default {
 data(){
   return{

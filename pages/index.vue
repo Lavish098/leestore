@@ -1,5 +1,6 @@
 <template>
 <div class="home">
+  <Loading v-show="!loading"/>
 <productDescription
 :product="product"
 :active="active.product_drawer"
@@ -8,8 +9,6 @@ v-on:close-product-drawer="closeProductDrawer()"/>
 <productCard :product="product" v-for="product in productFeeds" :key="product.id"
 v-on:view-product="viewProduct($event)"
 />
-
-  <h1>home</h1>
   </div>
 </template>
 
@@ -20,6 +19,7 @@ export default {
   data(){
     return{
       // products: products,
+      loading: null,
       product: null,
       active:{
         product_drawer: false
@@ -28,7 +28,8 @@ export default {
   },
   computed:{
     productFeeds(){
-      return this.$store.getters.productFeeds
+    this.loading = true
+      return this.$store.getters.productFeeds;
     }
   },
   methods:{
@@ -44,6 +45,7 @@ export default {
   },
   mounted(){
     this.$store.commit('updateCartFromLocalStorage')
+
   }
 }
 </script>

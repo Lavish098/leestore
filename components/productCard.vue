@@ -1,11 +1,10 @@
 <template>
   <div class="product-card">
-      <div class="info">
+      <div class="info" @click="$emit('view-product', product)">
           <h4>{{ product.name }}</h4>
           <h4>${{ product.price.USD.toFixed(2) }}</h4>
           <h4>{{ product.type }}</h4>
       </div>
-          <button @click="$emit('view-product', product)">View Product</button>
   </div>
 </template>
 
@@ -44,14 +43,12 @@ export default {
 <style scoped>
 .product-card{
     max-width: 1000px;
-
     display: flex;
     justify-content: center;
-    
     /* flex-wrap: wrap; */
 }
 .product-card .info{
-    margin: 0 0 10px 10px;
+    margin: 0 0 20px 20px;
     cursor: pointer;
     border-radius: 8px;
     background-color: #fff;
@@ -82,17 +79,17 @@ export default {
     padding: 32px 16px;
     color: #000;
 } */
-.blog-card .info h4{
-    padding-bottom: 20px;
+.product-card .info h4{
+    padding-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
 }
-.blog-card .info h6{
+.product-card .info h6{
     padding-bottom: 16px;
     font-size: 12px;
     font-weight: 400;
 }
-.blog-card .info link{
+/* .blog-card .info link{
     display: inline-flex;
     align-items: center;
     margin-top: auto;
@@ -107,5 +104,5 @@ export default {
 }
 .blog-card .info .link .arrow{
     width: 10px;
-}
+} */
 </style>
