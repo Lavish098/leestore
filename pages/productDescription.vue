@@ -2,22 +2,21 @@
 <div  :class="{show: active}" >
   <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')"/>
   <div :class="{show: active}" class="drawer">
-    <div class="closeDrawer" @click="$emit('close-product-drawer')">
-        X  
-    </div>
-    <div v-if="product" class="product-details">
-        <h3>{{ product.name }}</h3>
-        <h3>${{ product.price.USD }}</h3>
+    <div v-if="currentProduct" class="product-details">
+        <img :src="require(`@/assets/images/${this.currentProduct.image}.jpg`)" alt=""/>
+        <h3>{{ (this.currentProduct.name) }}</h3>
+        <h3> ₦{{ (this.currentProduct.price) }}</h3>
+        <h3>{{ (this.currentProduct.description) }}</h3>
     
     <div v-if="product_total" class="cart-total">
         <h3>In cart </h3>
         <h3>{{ product_total }}</h3>
     </div>
 
+    </div>
     <div class="button-container">
         <button class="remove" @click="removeFromCart">-</button>
         <button class="add" @click="addToCart">+</button>
-    </div>
     </div>
 </div>
   </div>
@@ -25,20 +24,33 @@
 
 <script>
 export default {
-    props:['product', 'active'],
+    props:[ 'active'],
+    data(){
+        return{
+            currentProduct:null
+        }
+    },
     methods:{
         addToCart(){
-            this.$store.commit('addToCart', this.product)
+            this.$store.commit('addToCart', this.currentProduct)
         },
         removeFromCart(){
-            this.$store.commit('removeFromCart', this.product)
+            this.$store.commit('removeFromCart', this.currentProduct)
         }
     },
     computed:{
         product_total(){
-            return this.$store.getters.productQuantity(this.product)
+            return this.$store.getters.productQuantity(this.currentProduct)
         }
-    }
+    },
+    async mounted(){
+        
+
+    this.currentProduct = await this.$store.getters.products.filter((product) => {
+        return product.id == this.$route.params.productid;
+    })[0]
+  console.log(this.currentProduct.image)
+  }
 
 }
 </script>
@@ -57,18 +69,6 @@ export default {
 }
 .show{
     display: block;
-}
-.drawer{
-    width: 95vw;
-    height: 100vh;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: -105vw;
-    padding: 15px;
-    transition: left .5s;
-    z-index: 101;
-    overflow-y: scroll;
 }
  .show{
     left: 0;

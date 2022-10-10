@@ -3,18 +3,21 @@
     padding: 0;
 }
 body{
-    background: whitesmoke;
+    background-color: white;
 }
 header{
-    background-color: whitesmoke;
-    padding: 0 25px;
+    background-color: white;
+    padding: 15px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
+    border-bottom: 2px solid rgba(255, 208, 53, 0.6);;
 }
 .nav-links{
+    font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    left: 30%;
-    font-weight: 600;
+    left: 20%;
+    font-weight: 400;
+    color: rgb(255, 208, 53);
     padding: 0 8px;
     transition: .3s color ease;
 }
@@ -22,7 +25,7 @@ header{
     margin-right: 20px;
 }
 .links.nuxt-link-active{
-    color: grey;
+    color: rgb(255, 208, 53);
 }
 .links:hover{
     color: grey;
@@ -35,23 +38,12 @@ header{
     width:100%;
 }
 .name{
-    font-weight: 500;
-    font-size: 30px;
+    margin-left: 40px;
+    color: rgb(255, 208, 53);
+    font-weight: 600;
+    font-size: 25px;
 }
-.button{
-position: absolute;
-top: 27px;
-right: 12px;
-}
-.button i {
-    font-size: 40px;
-}
-.button h2 {
-    color: white;
-    right: 8px;
-    top: -4px;
-    position: absolute;
-}
+
 .cart-table{
     font-weight: 500;
     margin-top: 30px;
@@ -65,3 +57,150 @@ right: 12px;
     font-size: 20px;
     padding-right: 40px;
 }
+
+
+/* searchBar */
+.searchBar{
+    position: absolute;
+    right: 25%;
+    top: 30px;
+}
+.searchBar input{
+    background-color: rgba(255, 208, 53, 0);
+    font-size: 20px;
+    caret-color: rgb(255, 208, 53);
+    color: rgb(255, 208, 53);
+    font-weight: 600;
+}
+.searchBar input:focus{
+    outline: none;
+}
+.searchBar h2{
+  cursor: pointer;
+  
+}
+.searchQuery{
+  background: rgba(255, 208, 53, 0.5);
+  margin-left: 7em;
+  width: 60%;
+  color: rgb(255, 208, 53);
+  z-index: 999;
+}
+.searchIcon{
+  cursor: pointer;
+  color: rgb(255, 208, 53);
+  padding: 0 15px;
+  font-size: 30px;
+  font-weight: 100;
+}
+.inputIcon{
+    display: flex;
+    background-color: rgba(255, 208, 53, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+.inputIcon h2{
+    color: rgb(255, 208, 53);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 15px;
+}
+
+/* cart */
+.cartIcon{
+    position: absolute;
+    top: 27px;
+    right: 15%;
+    background-color: rgba(255, 208, 53, 0.3);
+    padding: 10px 15px;
+    border-radius: 50px;
+    }
+    .cartIcon i {
+        color: rgb(255, 208, 53);
+        font-size: 20px;
+    }
+/* user */
+.userIcon{
+    position: absolute;
+    top: 27px;
+    right: 10%;
+    background-color: rgba(255, 208, 53, 0.3);
+    padding: 10px 17px;
+    border-radius: 50px;
+    }
+    .userIcon i {
+        color: rgb(255, 208, 53);
+        font-size: 20px;
+    }
+    /* categories */
+    .category{
+        width: 100%;
+        padding: 30px 15px;
+    }
+    .category h1{
+        color: rgb(255, 208, 53);
+        margin-left: 50px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .categories{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .categories h2{
+        font-size: 20px;
+        color: rgb(255, 208, 53);
+        margin: 10px 30px 30px 10px;
+        background-color: rgba(255, 208, 53, 0.3);
+    padding: 10px 17px;
+    border-radius: 50px;
+    }
+    .gallery-container {
+        display: flex;
+        justify-content: center;
+        height: 400px;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        transform: translate3d(0, 0, 0);
+      }
+      .slides{
+        display: flex;
+        margin-top: 20px;
+        overflow: hidden;
+        width: 550px;
+        border: 2px solid black;
+      }
+      .slides img{
+        max-width: 600px;
+        height: 400px;
+      }
+      
+      .slides  div {
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, 0);
+      }
+      /* .slides .mover-1 {
+        animation: moveSlideshow 1s linear infinite;
+        animation-delay: 5s;
+      }
+      .slides .mover-2 {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        background-position: 0 200px;
+        animation: moveSlideshow 12s linear infinite;
+        animation-delay: 5s;
+      }
+      .slides .mover-2 {
+        opacity: 1;
+      }
+      
+      @keyframes moveSlideshow {
+        
+        100% { 
+          transform: translateX(-100%);  
+        }
+      } */

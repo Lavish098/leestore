@@ -1,14 +1,12 @@
 <template>
 <div class="product">
-<productDescription
+<!-- <productDescription
 :product="product"
 :active="active.product_drawer"
-v-on:close-product-drawer="closeProductDrawer()"/>
+v-on:close-product-drawer="closeProductDrawer()"/> -->
 
   <productCard :product="product" v-for="product in products" :key="product.id"
-v-on:view-product="viewProduct($event)"
-/>
-  <h1>products</h1>
+v-on:view-product="viewProduct($event)"/>
 </div>
 
 </template>

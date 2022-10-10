@@ -1,10 +1,14 @@
 <template>
   <div class="product-card">
-      <div class="info" @click="$emit('view-product', product)">
+    <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
+
+      <div class="info" >
+        <img :src="require(`@/assets/images/${this.image}.jpg`)" alt=""/>
           <h4>{{ product.name }}</h4>
-          <h4>${{ product.price.USD.toFixed(2) }}</h4>
+          <h4>₦ {{ product.price.toFixed(2) }}</h4>
           <h4>{{ product.type }}</h4>
       </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -14,14 +18,17 @@ export default {
     props:['product'],
     data(){
         return{
-            quantity:''
+            image: this.product.image
         }
     },
     methods:{
-    
+    },
+    mounted(){
+        console.log(this.image)
     },
     computed:{
     carts(){
+    
       return this.$store.state.carts;
     }
   }, 
@@ -88,6 +95,14 @@ export default {
     padding-bottom: 16px;
     font-size: 12px;
     font-weight: 400;
+}
+.product-card img{
+    display: block;
+    border-radius: 8px 8px 0 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 200px;
+    object-fit: cover;
 }
 /* .blog-card .info link{
     display: inline-flex;

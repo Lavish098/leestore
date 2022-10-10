@@ -9,10 +9,13 @@
     <nuxt-link to="pastorder" class="links">Past order</nuxt-link>
     
     </div>
-    <button class="button" @click="toggleCartBar">
+    <seacrhBar/>
+    <div class="cartIcon" @click="toggleCartBar">
       <i class="fas fa-shopping-cart"></i>
-      <h2>{{totalQuantity}}</h2>
-      </button>
+      </div>
+    <div class="userIcon">
+      <i class="fas fa-user"></i>
+      </div>
     </div>
     </header>
     <cartBar v-if="cartBar" 
@@ -30,9 +33,7 @@ data(){
   }
 },
 computed:{
-  totalQuantity(){
-    return this.$store.getters.totalQuantity
-  }
+  
 },
 methods:{
 toggleCartBar(){
