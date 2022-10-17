@@ -32,7 +32,7 @@ export const getters = {
   },
   products: state => {
     return state.productItems
-  }
+  },
 }
 export const mutations = {
     addToCart(state, product){

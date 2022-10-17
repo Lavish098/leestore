@@ -5,7 +5,7 @@
       <div class="info" >
         <img :src="require(`@/assets/images/${this.image}.jpg`)" alt=""/>
           <h4>{{ product.name }}</h4>
-          <h4>₦ {{ product.price.toFixed(2) }}</h4>
+          <h4>₦ {{ product.price }}</h4>
           <h4>{{ product.type }}</h4>
       </div>
     </nuxt-link>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: "productCard",
+    name: "typeCard",
     props:['product'],
     data(){
         return{
@@ -46,20 +46,4 @@ export default {
 
 <style scoped>
 
-/* .blog-card .info link{
-    display: inline-flex;
-    align-items: center;
-    margin-top: auto;
-    font-weight: 500;
-    padding-top: 20px;
-    font-size: 12px;
-    padding-bottom: 4px;
-    transition: 0.5s ease-in all;
-}
-.blog-card .info link:hover{
-    color: rgba(48, 48, 48, 0.8);
-}
-.blog-card .info .link .arrow{
-    width: 10px;
-} */
 </style>

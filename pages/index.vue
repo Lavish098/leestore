@@ -1,7 +1,9 @@
 <template>
 <div class="home">
   <Loading v-show="!loading"/>
-  <VueSlickCarousel v-bind="settings" class="gallery-container">
+  <div class="gallery-container">
+
+  <VueSlickCarousel v-bind="settings" class="slides">
   <div class="mover-1">
     <img src="@/assets/images/images (32).jpeg" alt="">
     </div>
@@ -9,7 +11,8 @@
     <img src="@/assets/images/images (33).jpeg" alt="">
     </div>
   </VueSlickCarousel>
-<categories/>
+  </div>
+<categories />
 <productCard :product="product" v-for="product in productFeeds" :key="product.id"
 v-on:view-product="viewProduct($event)"
 />
