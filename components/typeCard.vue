@@ -1,14 +1,16 @@
 <template>
   <div class="product-card">
-    <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
-
       <div class="info" >
         <img :src="require(`@/assets/images/${this.image}.jpg`)" alt=""/>
           <h4>{{ product.name }}</h4>
-          <h4>₦ {{ product.price }}</h4>
-          <h4>{{ product.type }}</h4>
-      </div>
+          <h4 class="price">₦ {{ product.price.toFixed(2) }}</h4>
+          <button @click="addToCart">Add to Cart</button>
+    <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
+        <i class="fas fa-eye">
+        Quick View
+        </i>
     </nuxt-link>
+      </div>
   </div>
 </template>
 
@@ -22,6 +24,9 @@ export default {
         }
     },
     methods:{
+        addToCart(){
+            this.$store.commit('addToCart', this.product)
+        },
     },
     computed:{
     carts(){
@@ -46,4 +51,20 @@ export default {
 
 <style scoped>
 
+/* .blog-card .info link{
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    font-weight: 500;
+    padding-top: 20px;
+    font-size: 12px;
+    padding-bottom: 4px;
+    transition: 0.5s ease-in all;
+}
+.blog-card .info link:hover{
+    color: rgba(48, 48, 48, 0.8);
+}
+.blog-card .info .link .arrow{
+    width: 10px;
+} */
 </style>

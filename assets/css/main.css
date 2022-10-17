@@ -77,11 +77,15 @@ header{
   
 }
 .searchQuery{
-  background: rgba(255, 208, 53, 0.5);
-  margin-left: 7em;
-  width: 60%;
+  background: rgba(255, 208, 53, 0.1);
+  position: absolute;
+  right: 2%;
+  width: 70%;
   color: rgb(255, 208, 53);
-  z-index: 999;
+  z-index: 999999;
+}
+.searchQuery h2{
+    padding: 5px;
 }
 .searchIcon{
   cursor: pointer;
@@ -162,6 +166,7 @@ header{
         margin-top: 40px;
         margin-left: 6em;
         position: relative;
+        z-index: -1;
         transform: translate3d(0, 0, 0);
       }
       .slides{
@@ -194,7 +199,6 @@ header{
         /* flex-wrap: wrap; */
     }
     .product-card .info{
-        cursor: pointer;
         background-color: #fff;
         padding: 20px;
         width: 300px;
@@ -204,10 +208,10 @@ header{
         align-items: center;
         transition: .5s ease all;
     }
-    .product-card .info:hover{
+    /* .product-card .info:hover{
         transform: rotateZ(-1deg) scale(1.01);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86);
-    }
+    } */
     .product-card .info h4{
         padding-bottom: 10px;
         font-size: 20px;
@@ -225,4 +229,19 @@ header{
         width: 100%;
         min-height: 200px;
         object-fit: cover;
+    }
+    .product-card .info button {
+        color: #fff;
+        background-color: rgba(255, 208, 53);
+        margin-top: 10px;
+        padding: 15px 35px;
+        border-radius: 5px;
+    }
+    .product-card i{
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .price{
+        color: rgba(255, 208, 53);
+        font-size: 15px;
     }

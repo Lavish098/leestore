@@ -14,7 +14,7 @@ export default {
 props:['product'],
 computed:{
      item_cost() {
-        return this.product.price.USD * this.product.quantity
+        return this.product.price * this.product.quantity
        }
 },
 methods:{
