@@ -1,6 +1,7 @@
 <template>
 <div class="home">
   <Loading v-show="!loading"/>
+<categories />
   <div class="gallery-container">
 
   <VueSlickCarousel v-bind="settings" class="slides">
@@ -12,10 +13,11 @@
     </div>
   </VueSlickCarousel>
   </div>
-<categories />
+  <div class="productCard">
 <productCard :product="product" v-for="product in productFeeds" :key="product.id"
 v-on:view-product="viewProduct($event)"
 />
+  </div>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   name: 'IndexPage',
+  props:['mobile'],
   components:{
     VueSlickCarousel
   },
@@ -36,7 +39,7 @@ export default {
 dotsClass: "slick-dots custom-dot-class",
   edgeFriction: 0.35,
   infinite: true,
-  speed: 500,
+  speed: 100,
   slidesToShow: 1,
   slidesToScroll: 1
       },
@@ -65,18 +68,23 @@ dotsClass: "slick-dots custom-dot-class",
       console.log(this.active.product_drawer)
     }
   },
-  mounted(){
-    this.$store.commit('updateCartFromLocalStorage')
-
-  }
+ 
 }
 </script>
 <style>
 .home{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   margin: 0 auto;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
+}
+.productCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
 }
 </style>

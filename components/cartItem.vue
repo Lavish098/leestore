@@ -1,10 +1,17 @@
 <template>
   <div class="table">
-   
-<p>{{ product.name }}</p>
-                <p>{{ product.quantity }}</p>
-                <p>${{ item_cost.toFixed(2) }}</p>
-                <button @click="removeItem">X</button>
+    <div class="cart-image">
+   <img :src="require(`@/assets/images/${this.product.image}.jpg`)" alt=""/>
+    </div>
+    <div class="cart-items">
+        <p>{{ product.name }}</p>
+                <p>₦{{ item_cost.toLocaleString() }}</p>
+    </div>
+    <div class="cart-button">
+        <button @click="removeFromCart">-</button>
+        <p>{{ product.quantity }}</p>
+        <button @click="addToCart">+</button>
+    </div>
          
   </div>
 </template>
@@ -20,21 +27,17 @@ computed:{
 methods:{
     removeItem(){
             this.$store.commit('removeItem', this.product)
+        },
+        addToCart(){
+            this.$store.commit('addToCart', this.product)
+        },
+        removeFromCart(){
+            this.$store.commit('removeFromCart', this.product)
         }
-}
+    },
 }
 </script>
 
 <style>
-.table{
-    font-weight: 500;
-    margin-left: 20px;
-}
 
-.table table{
-     font-size: 20px;
-}
- .table th{
-    padding-right: 50px;
-}
 </style>

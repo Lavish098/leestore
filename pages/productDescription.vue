@@ -1,7 +1,6 @@
 <template>
 <div  :class="{show: active}" >
-  <div class="drawer-background" :class="{show: active}" @click="$emit('close-product-drawer')"/>
-  <div :class="{show: active}" class="drawer">
+  <div :class="{show: active}" class="product-description">
     <div v-if="currentProduct" class="product-details">
         <img :src="require(`@/assets/images/${this.currentProduct.image}.jpg`)" alt=""/>
         <h3>{{ (this.currentProduct.name) }}</h3>
@@ -19,6 +18,8 @@
         <button class="add" @click="addToCart">+</button>
     </div>
 </div>
+
+<review :currentProduct="reviewId"/>
   </div>
 </template>
 
@@ -27,7 +28,8 @@ export default {
     props:[ 'active'],
     data(){
         return{
-            currentProduct:null
+            reviewId: this.$route.params.productid,
+            currentProduct: null,
         }
     },
     methods:{
@@ -41,72 +43,20 @@ export default {
     computed:{
         product_total(){
             return this.$store.getters.productQuantity(this.currentProduct)
-        }
+        },
     },
     async mounted(){
-        
-
     this.currentProduct = await this.$store.getters.products.filter((product) => {
         return product.id == this.$route.params.productid;
-    })[0]
-  console.log(this.currentProduct.image)
+    })[0];
+    
+    this.$store.commit('updateCartFromLocalStorage')
+  this.$store.commit('updateProductReviewsFromLocalStorage')
   }
 
 }
 </script>
 
 <style>
-.drawer-background{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: rgba(124, 124, 124, 0.55);
-    z-index: 100;
-    display: none;
-    transition: display .5s;
-}
-.show{
-    display: block;
-}
- .show{
-    left: 0;
-}
-.closeDrawer{
-    font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 5px;
-    right: 10px;
-    cursor: pointer;
-    border: 2px solid gray;
-    color: gray;
-    width: 35px;
-    float: right;
-}
-.closeDrawer:hover{
-    background-color: lightgray;
-}
-.product-details{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 
-}
-.button-container{
-    font-size: 30px;
-}
-.button-container button{
-    width: 150px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0 5px 50px 5px;
-    cursor: pointer;
-}
-@media (min-width: 500px){
-    .drawer{
-        width: 450px;
-    }
-}
 </style>

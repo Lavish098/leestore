@@ -3,7 +3,7 @@
       <div class="info" >
         <img :src="require(`@/assets/images/${this.image}.jpg`)" alt=""/>
           <h4>{{ product.name }}</h4>
-          <h4 class="price">₦ {{ product.price.toFixed(2) }}</h4>
+          <h4 class="price">₦ {{ product.price.toLocaleString() }}</h4>
           <button @click="addToCart">Add to Cart</button>
     <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
         <i class="fas fa-eye">

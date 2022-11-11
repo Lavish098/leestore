@@ -1,7 +1,16 @@
 <template>
-  <div class="loading">
-      <span></span>
-  </div>
+      <div class="loading">
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
 </template>
 
 <script>
@@ -22,20 +31,52 @@ export default {
     justify-content: center;
     align-items: center;
 }
-@keyframes spin{
-    to{
-        transform: rotateZ(360deg);
-    }
+
+.wave {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(45deg, #007eff, #cce5ff);
+  margin: 5px;
+  animation: wave 1s linear infinite;
+  /* border-radius: 5px; */
 }
-span{
-    display: block;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
-    border: 3px solid transparent;
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-    border-radius: 50%;
-    animation: spin ease 1000ms infinite;
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 </style>

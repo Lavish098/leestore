@@ -1,8 +1,7 @@
 <template>
   <div class="searchBar">
     <div class="inputIcon">
-      <h2>All Categories</h2>
-    <input type="text" v-model="search">
+    <input type="text" v-model="search" placeholder="Search for your products here">
     <i class="fas fa-search searchIcon" @click="searchToggle"></i>
     </div>
     <div class="searchQuery"  v-if="search">
