@@ -1,25 +1,28 @@
 <template>
-<div  :class="{show: active}" >
-  <div :class="{show: active}" class="product-description">
-    <div v-if="currentProduct" class="product-details">
-        <img :src="require(`@/assets/images/${this.currentProduct.image}.jpg`)" alt=""/>
-        <h3>{{ (this.currentProduct.name) }}</h3>
-        <h3> ₦{{ (this.currentProduct.price) }}</h3>
-        <h3>{{ (this.currentProduct.description) }}</h3>
+<div  v-if="currentProduct" class="product-description" >
     
+        <div class="img">
+        <img :src="require(`@/assets/images/${this.currentProduct.image}.jpg`)" alt=""/>
+        </div>
+        <div class="product-container">
+
+        <div class="product-details">
+        <h1>{{ (this.currentProduct.name) }}</h1>
+        <h2> ₦{{ (this.currentProduct.price) }}</h2>
+        <h3>{{ (this.currentProduct.description) }}</h3>
+        </div>
     <div v-if="product_total" class="cart-total">
         <h3>In cart </h3>
         <h3>{{ product_total }}</h3>
     </div>
 
-    </div>
     <div class="button-container">
         <button class="remove" @click="removeFromCart">-</button>
         <button class="add" @click="addToCart">+</button>
     </div>
-</div>
 
 <review :currentProduct="reviewId"/>
+        </div>
   </div>
 </template>
 
@@ -39,7 +42,7 @@ export default {
         removeFromCart(){
             this.$store.commit('removeFromCart', this.currentProduct)
         }
-    },
+    }, 
     computed:{
         product_total(){
             return this.$store.getters.productQuantity(this.currentProduct)

@@ -15,7 +15,12 @@
     </select>
 
     <button @click="submit">Submit</button>
+
+    <div v-if="productReviews.length === 0">
+        <h1>No Reviews</h1></div>
+    <div>
        <reviewCard :review="productReview" v-for="(productReview, index) in productReviews" :key="index"/>
+    </div>
     
 </div>
 </template>
@@ -37,6 +42,7 @@ export default {
             this.productReview.id = this.currentProduct;
             await this.$store.commit('submit', this.productReview);
             
+            this.productReview = []
         }
     },
     computed:{

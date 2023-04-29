@@ -355,4 +355,31 @@ border-radius: 20px;
     .price{
         font-size: 15px;
     }
-
+    .product-description{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+   width: 100vw;
+}
+.img img{
+    width: 70vw;
+}
+.product-details{
+    margin: 0 auto;
+}
+.product-details h1{
+    font-size: 30px;
+}
+.product-details h2{
+    font-size: 30px;
+}
+.product-details h3{
+    font-size: 30px;
+}

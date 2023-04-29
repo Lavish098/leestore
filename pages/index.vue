@@ -1,7 +1,6 @@
 <template>
 <div class="home">
   <Loading v-show="!loading"/>
-<categories />
   <div class="gallery-container">
 
   <VueSlickCarousel v-bind="settings" class="slides">
@@ -13,6 +12,9 @@
     </div>
   </VueSlickCarousel>
   </div>
+  
+  <categories />
+
   <div class="productCard">
 <productCard :product="product" v-for="product in productFeeds" :key="product.id"
 v-on:view-product="viewProduct($event)"

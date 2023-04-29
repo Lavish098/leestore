@@ -9,9 +9,9 @@
       </div>
     <nuxt-link to="/" class="name">LEESTORE</nuxt-link>
     <div class="nav-links" v-show="!mobile">
-      <nuxt-link to="/" class="links">Home</nuxt-link>
-    <nuxt-link to="products" class="links">Products</nuxt-link>
-    <nuxt-link to="pastorder" class="links">Past order</nuxt-link>
+      <nuxt-link :to="{name: 'index'}" class="links">Home</nuxt-link>
+    <nuxt-link :to="{name: 'products'}" class="links">Products</nuxt-link>
+    <nuxt-link :to="{name: 'index'}" class="links">Past order</nuxt-link>
     
     </div>
     <seacrhBar/>
