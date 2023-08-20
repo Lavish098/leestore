@@ -185,7 +185,7 @@ right: 5%;
 
 @media screen and (min-width: 501px) {
     header{
-        width: 110%;
+        width: 100%;
         padding: 45px;
     }
     .nav{
@@ -195,7 +195,7 @@ right: 5%;
     }
         .searchBar{
             padding: 10px;
-            width: 110%;
+            width: 100%;
             border-top: 2px solid rgba(208, 208, 207, 0.6);
             left: 0px;
             top: 55px;
@@ -217,7 +217,7 @@ right: 5%;
 }
 .userIcon{
     top: 15px;
-    right: 1%;
+    right: 5%;
 }
     .gallery-container {
         height: 400px;
@@ -227,7 +227,7 @@ right: 5%;
       .slides{
         display: flex;
         margin-top: 10px;
-        width: 800px;
+        width: 600px;
       }
       .slides img{
         height: 400px;
@@ -415,7 +415,7 @@ right: 5%;
    }
     .userIcon{
         top: 15px;
-        right: 0%;
+        right: 5%;
                     }
                            /* categories */
                     
@@ -426,7 +426,7 @@ right: 5%;
                         }
                         .cartIcon{
                             top: 15px;
-                            right: 40px;
+                            right: 90px;
                         }
                         .cart-items{
                             width: 45%;

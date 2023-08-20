@@ -7,7 +7,7 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-    <nuxt-link to="/" class="name">LEESTORE</nuxt-link>
+    <nuxt-link to="/" class="name">SHARONS STORE</nuxt-link>
     <div class="nav-links" v-show="!mobile">
       <nuxt-link :to="{name: 'index'}" class="links">Home</nuxt-link>
     <nuxt-link :to="{name: 'products'}" class="links">Products</nuxt-link>

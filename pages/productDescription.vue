@@ -8,7 +8,7 @@
 
         <div class="product-details">
         <h1>{{ (this.currentProduct.name) }}</h1>
-        <h2> ₦{{ (this.currentProduct.price) }}</h2>
+        <h2> ₦{{ (this.currentProduct.price).toLocaleString() }}</h2>
         <h3>{{ (this.currentProduct.description) }}</h3>
         </div>
     <div v-if="product_total" class="cart-total">
